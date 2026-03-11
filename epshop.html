@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Epstein Clicker - EpShop</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="729f79f77c1e8f76b425dd14e9952eac5d86913b" content="729f79f77c1e8f76b425dd14e9952eac5d86913b" />
+  <meta name="referrer" content="no-referrer-when-downgrade" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Cloudflare Web Analytics -->
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "7d1f0469cf8f44e08da095b0bc5e9d8a"}'></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4769618736904438"
+       crossorigin="anonymous"></script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MVXGJXLC3C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MVXGJXLC3C');
+  </script>
+
+</head>
+<body class="scanlines page">
+  <canvas id="neon-dots-bg" aria-hidden="true"></canvas>
+
+  <div id="headerFixed">
+    <div id="tickerWrap" aria-label="stock ticker">
+      <div id="ticker">
+        <span class="tickerItem">&nbsp;|&nbsp;epsteinclicker.com&nbsp;|&nbsp;Your&nbsp;Score&nbsp;:&nbsp;<span class="tickerScore">0</span>&nbsp;|&nbsp;</span>
+        <span class="tickerItem">&nbsp;|&nbsp;epsteinclicker.com&nbsp;|&nbsp;Your&nbsp;Score&nbsp;:&nbsp;<span class="tickerScore">0</span>&nbsp;|&nbsp;</span>
+        <span class="tickerItem">&nbsp;|&nbsp;epsteinclicker.com&nbsp;|&nbsp;Your&nbsp;Score&nbsp;:&nbsp;<span class="tickerScore">0</span>&nbsp;|&nbsp;</span>
+        <span class="tickerItem">&nbsp;|&nbsp;epsteinclicker.com&nbsp;|&nbsp;Your&nbsp;Score&nbsp;:&nbsp;<span class="tickerScore">0</span>&nbsp;|&nbsp;</span>
+        <span class="tickerItem">&nbsp;|&nbsp;epsteinclicker.com&nbsp;|&nbsp;Your&nbsp;Score&nbsp;:&nbsp;<span class="tickerScore">0</span>&nbsp;|&nbsp;</span>
+        <span class="tickerItem">&nbsp;|&nbsp;epsteinclicker.com&nbsp;|&nbsp;Your&nbsp;Score&nbsp;:&nbsp;<span class="tickerScore">0</span>&nbsp;|&nbsp;</span>
+        <span class="tickerItem">&nbsp;|&nbsp;epsteinclicker.com&nbsp;|&nbsp;Your&nbsp;Score&nbsp;:&nbsp;<span class="tickerScore">0</span>&nbsp;|&nbsp;</span>
+        <span class="tickerItem">&nbsp;|&nbsp;epsteinclicker.com&nbsp;|&nbsp;Your&nbsp;Score&nbsp;:&nbsp;<span class="tickerScore">0</span>&nbsp;|&nbsp;</span>
+      </div>
+    </div>
+    <div class="topNav" role="navigation" aria-label="site navigation">
+      <a href="https://epsteinclicker.com" target="_blank" rel="noopener noreferrer" class="navItem">epsteinclicker.com</a>
+      <a href="index.html" class="navItem">HOME</a>
+      <a href="play.html" class="navItem">PLAY</a>
+      <a href="social.html" class="navItem">SOCIAL</a>
+      <a href="stats.html" class="navItem">YOUR STATS</a>
+      <a href="leaderboard.html" class="navItem">LEADERBOARD</a>
+      <a href="https://discord.gg/nXVUZXjQrn" target="_blank" rel="noopener noreferrer" class="navItem navDiscord">JOIN DISCORD</a>
+    </div>
+  </div>
+
+
+<!-- Idle / AFK overlay (pauses earning after 20 min of no interaction) -->
+  <div id="idleOverlay" role="dialog" aria-modal="true" aria-label="Are you still there?">
+    <div id="idleBox">
+      <h3>PAUSED — YOU STILL THERE?</h3>
+      <p>You were inactive for 20 minutes. The game is paused so auto-earning can't run in the background.</p>
+      <p>Click the button to resume.</p>
+      <div class="idleRow">
+        <button id="idleResumeBtn">I'M BACK</button>
+      </div>
+      <div class="footer" style="margin-top:10px; opacity:.75;">Tip: Leaving the tab or using scripts can trigger anti-cheat.</div>
+    </div>
+  </div>
+
+  
+<!-- Cheat Detection Popup -->
+  <div id="cheatOverlay" role="dialog" aria-modal="true" aria-label="Cheating Detected">
+    <div id="cheatBox">
+      <h3>⚠️ CHEATING DETECTED ⚠️</h3>
+      <div class="cheatMessage">
+        YOU HAVE BEEN CAUGHT CHEATING!
+      </div>
+      <p>Your score, leaderboard position, and all upgrades have been reset to ZERO.</p>
+      <p>Play fair or face the consequences!</p>
+      <button id="cheatAcknowledgeBtn">I UNDERSTAND</button>
+    </div>
+  </div>
+
+
+
+<div class="pageWrap">
+  <div class="title">EPSHOP</div>
+  <p class="sub">Buy upgrades here. Progress is saved automatically.</p>
+
+  <div class="panel">
+      <h2>UPGRADES</h2>
+      <div id="shop"></div>
+
+      <button class="danger" id="resetBtn">RESET SAVE</button>
+      <div class="footer">Auto-saves | Scaling: Cursor x1.25, others x1.40 | Shows owned count per upgrade</div>
+    </div>
+
+  <div class="hiddenStubs" aria-hidden="true">
+    <span id="score">0.0</span>
+    <span id="perClick">1</span>
+    <span id="perSec">0.1</span>
+    <span id="upgradeCount">0</span>
+    <img id="clickBtn" alt="" src="click.png" style="width:1px;height:1px;opacity:0;" />
+    <span id="currentLevel">1</span>
+    <span id="nextLevel">0</span>
+    <span id="levelProgress">0%</span>
+    <div id="progressBar"></div>
+    <span id="rawClicks">0</span>
+    <span id="statPerClick">1</span>
+    <span id="statPerSec">0</span>
+    <span id="hoursPlayed">0</span>
+    <span id="sessionTime">00:00:00</span>
+  </div>
+</div>
+
+<footer class="siteFooter">
+  <a href="privacy.html">Privacy</a>
+  <span class="siteFooterSep">|</span>
+  <a href="terms.html">Terms</a>
+</footer>
+
+<script src="game.js"></script>
+<script src="neon-dots-bg.js"></script>
+
+</body>
+</html>
