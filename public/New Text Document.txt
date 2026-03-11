@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Epstein Clicker</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    margin:0;
+    background:#000;
+    font-family:'Press Start 2P', cursive;
+    color:#00ffcc;
+    text-align:center;
+}
+
+/* Retro scanline background */
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.03),
+    rgba(255,255,255,0.03) 1px,
+    transparent 1px,
+    transparent 4px
+);
+pointer-events:none;
+}
+
+/* NAVBAR */
+
+nav{
+padding:20px;
+border-bottom:2px solid #00ffcc;
+}
+
+nav a{
+color:#00ffcc;
+text-decoration:none;
+margin:0 20px;
+font-size:12px;
+}
+
+nav a:hover{
+color:white;
+text-shadow:0 0 10px #00ffcc;
+}
+
+/* TITLE */
+
+.title{
+margin-top:120px;
+font-size:50px;
+text-shadow:
+0 0 10px #00ffcc,
+0 0 20px #00ffcc,
+0 0 40px #00ffcc;
+}
+
+/* PLAY BUTTON */
+
+.play{
+margin-top:80px;
+display:inline-block;
+padding:25px 60px;
+border:3px solid #00ffcc;
+color:#00ffcc;
+text-decoration:none;
+font-size:16px;
+transition:0.2s;
+}
+
+.play:hover{
+background:#00ffcc;
+color:black;
+box-shadow:0 0 20px #00ffcc;
+}
+
+/* MENU BUTTONS */
+
+.menu{
+margin-top:80px;
+}
+
+.menu a{
+display:block;
+margin:20px;
+color:#00ffcc;
+text-decoration:none;
+font-size:14px;
+}
+
+.menu a:hover{
+color:white;
+text-shadow:0 0 10px #00ffcc;
+}
+
+/* FOOTER */
+
+footer{
+margin-top:150px;
+font-size:10px;
+color:#555;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="home.html">HOME</a>
+<a href="index.html">PLAY</a>
+<a href="leaderboard.html">LEADERBOARD</a>
+<a href="shop.html">SHOP</a>
+</nav>
+
+<div class="title">
+EPSTEIN CLICKER
+</div>
+
+<a class="play" href="index.html">START GAME</a>
+
+<div class="menu">
+<a href="leaderboard.html">VIEW LEADERBOARD</a>
+<a href="shop.html">UPGRADES & SKINS</a>
+</div>
+
+<footer>
+
+<p>TikTok @eclicker</p>
+<p>Instagram @epsteinclicker</p>
+
+</footer>
+
+</body>
+</html>
