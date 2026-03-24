@@ -740,6 +740,33 @@ font-size:13px;
     .tickerBrand{ /* Reserved for future styling */ }
     .tickerScore{ /* Reserved for future styling */ }
 
+    /* ===== Tubzi promo: same row/height as nav; wide horizontal pill, one line ===== */
+    .topNav .navItem.navTubzi{
+      color:#ff9933;
+      border-color:var(--orange);
+      background:rgba(255,136,0,.12);
+      /* Same vertical rhythm as other .navItem (8px top/bottom); stretch wide with extra horizontal padding */
+      padding:8px 22px;
+      white-space:nowrap;
+      line-height:1.15;
+      min-width:max-content;
+      max-width:none;
+      text-align:center;
+      font-size:clamp(6.5px, 1.35vw, 9px);
+      letter-spacing:0.04em;
+      text-shadow:
+        0 0 6px rgba(255,153,51,.9),
+        0 0 12px rgba(255,102,0,.55),
+        1px 1px 0 #4a2200;
+      box-shadow:0 0 10px rgba(255,136,0,.25), inset 0 0 14px rgba(255,100,0,.06);
+    }
+    .topNav .navItem.navTubzi:hover{
+      color:#ffcc88;
+      border-color:#ffb84d;
+      background:rgba(255,180,80,.14);
+      box-shadow:0 0 16px rgba(255,153,51,.45);
+    }
+
     /* ===== Idle / AFK modal ===== */
     #idleOverlay{
       position:fixed; inset:0;
